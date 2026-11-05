@@ -2,8 +2,16 @@
 Create anything. From your phone.
 
 Mobile-first orchestration of AI providers, versioned skills and controlled execution.
-Foundation v0.1 — 2026-11-05. Status: engineering contracts and source package;
-there is no implemented Flutter application, API server or production renderer yet.
+Foundation v0.1 — 2026-11-05. Status: engineering contracts, source package,
+native Android preview APK and a Colab demo notebook; there is no production API
+server or managed render service yet.
+
+## Try the original render pipeline in Colab
+Open the [Creator S7 Colab notebook](https://colab.research.google.com/github/SparrowO7/Creator-S7/blob/main/notebooks/CreatorS7-Colab-Render.ipynb), choose a T4 GPU if Colab offers one, connect, and follow the notebook cells. The first setup downloads about 0.9 GB of models plus Python packages, so use Wi-Fi. Free Colab GPU availability and runtime duration are not guaranteed.
+
+The notebook renders the included Inside Out gum demo with the original Chrome,
+Kokoro, Whisper and FFmpeg pipeline. It saves the MP4 in Google Drive. The other
+styles can be tried by changing the style in the notebook after the sample works.
 
 ## Start here
 1. Read `docs/S7_Architecture.md` for boundaries and decisions.
@@ -14,7 +22,7 @@ there is no implemented Flutter application, API server or production renderer y
    examples, scripts and vendor files. `S7_INTEGRATION.md` explains the adapter work required.
 
 ## Repository map
-`apps/mobile` Flutter client; `apps/admin` deferred administration;
+`apps/mobile` Android preview client (not yet Flutter); `apps/admin` deferred administration;
 `backend` control plane; `runtime` execution adapters; `skills` source packages;
 `shared/schemas` machine-readable contracts; `infrastructure` deployment design.
 Folders with README files describe intended ownership, not working services.

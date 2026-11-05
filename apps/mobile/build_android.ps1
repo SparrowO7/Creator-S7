@@ -22,7 +22,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Android resources compilation failed' }
 & "$bt\aapt2.exe" link -I $plat -R "$base\resources.zip" `
   --manifest "$app\app\src\main\AndroidManifest.xml" --java "$base\gen" `
   --auto-add-overlay `
-  --min-sdk-version 26 --target-sdk-version 35 --version-code 2 --version-name 0.2.0 `
+  --min-sdk-version 26 --target-sdk-version 35 --version-code 3 --version-name 0.3.0 `
   --rename-manifest-package com.creators7.mobile -o "$base\app-unsigned.apk"
 if ($LASTEXITCODE -ne 0) { throw 'Android packaging failed' }
 
@@ -40,7 +40,7 @@ if (-not (Test-Path $keystore)) {
 }
 & "$bt\zipalign.exe" -f 4 "$base\app-unsigned.apk" "$base\app-aligned.apk"
 if ($LASTEXITCODE -ne 0) { throw 'APK alignment failed' }
-$out = Join-Path $repo 'CreatorS7-test-v0.2.apk'
+$out = Join-Path $repo 'CreatorS7-test-v0.3.apk'
 & "$bt\apksigner.bat" sign --ks $keystore --ks-pass pass:android --key-pass pass:android --out $out "$base\app-aligned.apk"
 if ($LASTEXITCODE -ne 0) { throw 'APK signing failed' }
 & "$bt\apksigner.bat" verify --verbose $out

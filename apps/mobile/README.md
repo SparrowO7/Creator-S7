@@ -15,7 +15,7 @@ bundled Java and Android SDK):
 ./build_android.ps1
 ```
 
-APK: `../../CreatorS7-test-v0.2.apk`
+APK: `../../CreatorS7-test-v0.3.apk`
 
 This is still a mobile preview renderer: 720x1280 H.264 with AAC narration and
 native vector scenes guided by the skill's palettes/storyboards. It does not yet
