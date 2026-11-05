@@ -1,0 +1,22 @@
+{
+  "request_id": "request-example-001",
+  "task_type": "script-generation",
+  "provider_id": "user-selected-provider",
+  "model_id": "capability-resolved-model",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Plan a 30 second English short about seed growth."
+        }
+      ]
+    }
+  ],
+  "output_schema_ref": "s7.faceless.storyboard.v0.1-TO-BE-IMPLEMENTED",
+  "max_output_tokens": 2000,
+  "deadline_ms": 60000,
+  "budget_reservation_ref": "reservation-example",
+  "consent_ref": "approval-example"
+}

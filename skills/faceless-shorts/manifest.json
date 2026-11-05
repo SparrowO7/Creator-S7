@@ -1,0 +1,81 @@
+{
+  "schema_version": "0.1",
+  "id": "s7.faceless-shorts",
+  "name": "Faceless Shorts",
+  "version": "0.1.0",
+  "description": "Six code-based vertical short styles with Kokoro narration, Whisper timing, Chrome capture and FFmpeg.",
+  "engine_api": "0.1",
+  "entrypoint": "SKILL.md",
+  "input_schema": "input.schema.json",
+  "workflow": "workflow.json",
+  "dependencies": "dependencies.json",
+  "permission_file": "permissions.json",
+  "checksums": "checksums.json",
+  "runtime": {
+    "cloud": true,
+    "android_local": false,
+    "ios_local": false
+  },
+  "capabilities": [
+    "script-generation",
+    "voice-generation",
+    "word-alignment",
+    "animation",
+    "video-rendering"
+  ],
+  "permissions": [
+    "project-files",
+    "cloud-asset-upload",
+    "text-provider-request",
+    "audio-processing",
+    "video-rendering",
+    "artifact-download"
+  ],
+  "outputs": [
+    "video/mp4",
+    "image/jpeg",
+    "application/json"
+  ],
+  "styles": [
+    {
+      "id": "deep-dive",
+      "instructions": "styles/deep-dive/STYLE.md",
+      "example": "styles/deep-dive/example",
+      "qualification": "experimental"
+    },
+    {
+      "id": "night-file",
+      "instructions": "styles/night-file/STYLE.md",
+      "example": "styles/night-file/example",
+      "qualification": "experimental"
+    },
+    {
+      "id": "inside-out",
+      "instructions": "styles/inside-out/STYLE.md",
+      "example": "styles/inside-out/example",
+      "qualification": "experimental"
+    },
+    {
+      "id": "stick-story",
+      "instructions": "styles/stick-story/STYLE.md",
+      "example": "styles/stick-story/example",
+      "qualification": "experimental"
+    },
+    {
+      "id": "paper-atlas",
+      "instructions": "styles/paper-atlas/STYLE.md",
+      "example": "styles/paper-atlas/example",
+      "qualification": "experimental"
+    },
+    {
+      "id": "tall-tale",
+      "instructions": "styles/tall-tale/STYLE.md",
+      "example": "styles/tall-tale/example",
+      "qualification": "experimental"
+    }
+  ],
+  "trust": {
+    "status": "unsigned-development",
+    "redistribution": "unverified"
+  }
+}

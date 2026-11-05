@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "topic",
+    "style",
+    "language",
+    "voice_mode",
+    "target_duration_seconds",
+    "music"
+  ],
+  "properties": {
+    "topic": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 2000
+    },
+    "style": {
+      "enum": [
+        "deep-dive",
+        "night-file",
+        "inside-out",
+        "stick-story",
+        "paper-atlas",
+        "tall-tale"
+      ]
+    },
+    "language": {
+      "const": "en"
+    },
+    "voice_mode": {
+      "enum": [
+        "ai",
+        "own-recording",
+        "captions-only"
+      ]
+    },
+    "voice": {
+      "type": "string",
+      "default": "am_michael"
+    },
+    "recording_asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_duration_seconds": {
+      "type": "integer",
+      "minimum": 25,
+      "maximum": 60
+    },
+    "music": {
+      "enum": [
+        "built-in",
+        "none",
+        "own-licensed"
+      ]
+    },
+    "music_asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "end_line": {
+      "type": "string",
+      "maxLength": 160
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "voice_mode": {
+            "const": "own-recording"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "recording_asset_id"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "music": {
+            "const": "own-licensed"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "music_asset_id"
+        ]
+      }
+    }
+  ]
+}

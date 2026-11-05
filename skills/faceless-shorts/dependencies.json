@@ -1,0 +1,44 @@
+{
+  "version": "0.1",
+  "install_on_import": false,
+  "worker_image": "UNRESOLVED: pin image digest before release",
+  "requirements": [
+    {
+      "name": "Node.js",
+      "constraint": ">=22; exact lock pending",
+      "purpose": "Chrome capture tools"
+    },
+    {
+      "name": "Python",
+      "constraint": "exact version pending worker spike",
+      "purpose": "voice/alignment/mix helpers"
+    },
+    {
+      "name": "Chrome",
+      "constraint": "exact version pending worker spike",
+      "purpose": "headless Canvas/Three.js rendering"
+    },
+    {
+      "name": "FFmpeg",
+      "constraint": "exact build/license review pending",
+      "purpose": "mix/encode/probe"
+    },
+    {
+      "name": "Kokoro",
+      "constraint": "~340 MB weights; digest/license pending",
+      "purpose": "English narration"
+    },
+    {
+      "name": "Whisper small.en",
+      "constraint": "~0.5 GB weights; digest/license pending",
+      "purpose": "English word alignment"
+    }
+  ],
+  "bundled": [
+    "style sources",
+    "example projects",
+    "fonts",
+    "Three.js vendor files where present"
+  ],
+  "network_during_render": "disabled after dependency staging; provider requests use broker"
+}

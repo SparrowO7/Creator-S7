@@ -1,0 +1,150 @@
+{
+  "protocol_version": "0.1",
+  "status": "declarative-adapter-design-not-implemented",
+  "steps": [
+    {
+      "id": "plan",
+      "operation": "s7.plan.faceless",
+      "runtime": "cloud",
+      "depends_on": [],
+      "when": null
+    },
+    {
+      "id": "approve-plan",
+      "operation": "s7.approval.plan",
+      "runtime": "control",
+      "depends_on": [
+        "plan"
+      ],
+      "when": null
+    },
+    {
+      "id": "materialize",
+      "operation": "s7.project.materialize",
+      "runtime": "cloud",
+      "depends_on": [
+        "approve-plan"
+      ],
+      "when": null
+    },
+    {
+      "id": "voice",
+      "operation": "s7.faceless.voice",
+      "runtime": "cloud",
+      "depends_on": [
+        "materialize"
+      ],
+      "when": "voice_mode == ai"
+    },
+    {
+      "id": "align",
+      "operation": "s7.faceless.align",
+      "runtime": "cloud",
+      "depends_on": [
+        "voice"
+      ],
+      "when": "voice_mode != captions-only"
+    },
+    {
+      "id": "estimate",
+      "operation": "s7.faceless.estimate",
+      "runtime": "cloud",
+      "depends_on": [
+        "materialize"
+      ],
+      "when": "voice_mode == captions-only"
+    },
+    {
+      "id": "animation",
+      "operation": "s7.faceless.animation",
+      "runtime": "cloud",
+      "depends_on": [
+        "align",
+        "estimate"
+      ],
+      "when": null
+    },
+    {
+      "id": "capture-check",
+      "operation": "s7.faceless.capture-check",
+      "runtime": "cloud",
+      "depends_on": [
+        "animation"
+      ],
+      "when": null
+    },
+    {
+      "id": "cues",
+      "operation": "s7.faceless.cues",
+      "runtime": "cloud",
+      "depends_on": [
+        "capture-check"
+      ],
+      "when": null
+    },
+    {
+      "id": "mix",
+      "operation": "s7.faceless.mix",
+      "runtime": "cloud",
+      "depends_on": [
+        "cues"
+      ],
+      "when": null
+    },
+    {
+      "id": "review",
+      "operation": "s7.faceless.review-artifacts",
+      "runtime": "cloud",
+      "depends_on": [
+        "mix"
+      ],
+      "when": null
+    },
+    {
+      "id": "approve-visual",
+      "operation": "s7.approval.visual",
+      "runtime": "control",
+      "depends_on": [
+        "review"
+      ],
+      "when": null
+    },
+    {
+      "id": "encode",
+      "operation": "s7.faceless.encode",
+      "runtime": "cloud",
+      "depends_on": [
+        "approve-visual"
+      ],
+      "when": null
+    },
+    {
+      "id": "validate",
+      "operation": "s7.media.validate",
+      "runtime": "cloud",
+      "depends_on": [
+        "encode"
+      ],
+      "when": null
+    },
+    {
+      "id": "approve-output",
+      "operation": "s7.approval.output",
+      "runtime": "control",
+      "depends_on": [
+        "validate"
+      ],
+      "when": null
+    },
+    {
+      "id": "commit",
+      "operation": "s7.artifact.commit",
+      "runtime": "control",
+      "depends_on": [
+        "approve-output"
+      ],
+      "when": null
+    }
+  ],
+  "dependency_semantics": "A false conditional step is SKIPPED and satisfies dependency ordering; referenced artifacts must still exist. align uses recording_asset_id in own-recording mode. animation consumes exactly one of alignment or estimate outputs. Predicate DSL has no eval or arbitrary expressions."
+}

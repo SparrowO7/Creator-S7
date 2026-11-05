@@ -1,0 +1,41 @@
+{
+  "version": "0.1",
+  "grants": [
+    {
+      "id": "project-files",
+      "scope": "current project assets only",
+      "approval": "plan-bound consent",
+      "purpose": "Read/write isolated project files"
+    },
+    {
+      "id": "cloud-asset-upload",
+      "scope": "approved job and destinations only",
+      "approval": "plan-bound consent",
+      "purpose": "Stage named assets in the render region"
+    },
+    {
+      "id": "text-provider-request",
+      "scope": "approved job and destinations only",
+      "approval": "plan-bound consent",
+      "purpose": "Send approved topic/script to selected provider"
+    },
+    {
+      "id": "audio-processing",
+      "scope": "approved job and destinations only",
+      "approval": "plan-bound consent",
+      "purpose": "Generate narration and alignment"
+    },
+    {
+      "id": "video-rendering",
+      "scope": "approved job and destinations only",
+      "approval": "plan-bound consent",
+      "purpose": "Capture animation and encode MP4"
+    },
+    {
+      "id": "artifact-download",
+      "scope": "approved job and destinations only",
+      "approval": "plan-bound consent",
+      "purpose": "Download approved final output to phone"
+    }
+  ]
+}

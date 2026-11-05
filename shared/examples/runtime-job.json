@@ -1,0 +1,35 @@
+{
+  "protocol_version": "0.1",
+  "job_id": "job-example-001",
+  "workflow_id": "workflow-example-001",
+  "attempt": 1,
+  "fencing_token": 1,
+  "skill": {
+    "id": "s7.faceless-shorts",
+    "version": "0.1.0",
+    "digest": "sha256:EXAMPLE_NOT_A_RELEASE_DIGEST"
+  },
+  "project": {
+    "id": "project-example",
+    "revision": 1
+  },
+  "operation": "s7.faceless.capture-check",
+  "inputs": [
+    {
+      "asset_id": "animation-example",
+      "digest": "sha256:EXAMPLE",
+      "storage_ref": "internal-asset-reference"
+    }
+  ],
+  "runtime": "cloud",
+  "limits": {
+    "cpu_cores": 2,
+    "memory_mib": 4096,
+    "disk_mib": 4096,
+    "deadline_seconds": 1200,
+    "network": "deny"
+  },
+  "approval_ref": "approval-example",
+  "credential_lease_refs": [],
+  "trace_id": "trace-example"
+}
